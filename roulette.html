@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="roulette.css">
+</head>
+<body>
+  <div class="main_wrapper">
+    <div class="main">
+      <div class="antenna">
+        <div class="antenna_shadow"></div>
+        <div class="a1"></div>
+        <div class="a1d"></div>
+        <div class="a2"></div>
+        <div class="a2d"></div>
+        <div class="a_base"></div>
+      </div>
+      <div class="tv">
+        <div class="cruve">
+          <svg
+            xml:space="preserve"
+            viewBox="0 0 189.929 189.929"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            xmlns="http://www.w3.org/2000/svg"
+            version="1.1"
+            class="curve_svg"
+          >
+            <path
+              d="M70.343,70.343c-30.554,30.553-44.806,72.7-39.102,115.635l-29.738,3.951C-5.442,137.659,11.917,86.34,49.129,49.13
+          C86.34,11.918,137.664-5.445,189.928,1.502l-3.95,29.738C143.041,25.54,100.895,39.789,70.343,70.343z"
+            ></path>
+          </svg>
+        </div>
+        <div class="display_div">
+          <div class="screen_out">
+            <div class="screen_out1">
+              <div class="screen">
+                <span class="notfound_text"> NOT FOUND</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lines">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div>
+        <div class="buttons_div">
+          <div class="b1"><div></div></div>
+          <div class="b2"></div>
+          <div class="speakers">
+            <div class="g1">
+              <div class="g11"></div>
+              <div class="g12"></div>
+              <div class="g13"></div>
+            </div>
+            <div class="g"></div>
+            <div class="g"></div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom">
+        <div class="base1"></div>
+        <div class="base2"></div>
+        <div class="base3"></div>
+      </div>
+    </div>
+    <div class="text_404">
+      <div class="text_4041">4</div>
+      <div class="text_4042">0</div>
+      <div class="text_4043">4</div>
+    </div>
+  </div>
+  <script src="roulette.js"></script>
+
+<!-- Nút quay lại đã được thay thế -->
+<button
+class="bg-white text-center w-48 rounded-2xl h-14 relative text-black text-xl font-semibold group"
+type="button"
+id="backButton"  <!-- Thêm id cho nút -->
+
+<div
+  class="bg-green-400 rounded-xl h-12 w-1/4 flex items-center justify-center absolute left-1 top-[4px] group-hover:w-[184px] z-10 duration-500"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 1024 1024"
+    height="25px"
+    width="25px"
+  >
+    <path
+      d="M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64z"
+      fill="#000000"
+    ></path>
+    <path
+      d="m237.248 512 265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z"
+      fill="#000000"
+    ></path>
+  </svg>
+</div>
+<p class="translate-x-2">Quay lại</p>
+</button>
+</div>
+<script>
+  // Xử lý sự kiện click cho nút quay lại
+  document.getElementById('backButton').addEventListener('click', function() {
+      window.location.href = 'game.html'; // Chuyển hướng về game.html
+  });
+</script>
+
+ </body>
+</html>
