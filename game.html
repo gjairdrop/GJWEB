@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Menu with Total Score</title>
+    <script type="module" src="game.js"></script> 
+    <style>
+        /* CSS giống như bạn đã có */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        .game-menu {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .game-item {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            color: black;
+            text-align: center;
+        }
+
+        .game-item:hover {
+            transform: scale(1.05);
+        }
+
+        .game-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .game-item h3 {
+            padding: 10px;
+            font-size: 18px;
+        }
+
+        .score {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .total-score {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <button id="check-in-button">Điểm danh</button>
+    <div id="check-in-message" style="display:none;"></div>
+     <!-- Hiển thị tổng số điểm -->
+     <div class="total-score">Total Score: <span id="totalScore"></span> GJ</div>
+
+    <div class="game-menu">
+        <!-- Game 1 -->
+        <a href="tx.html" class="game-item" onclick="increaseScore(0)">
+            <img src="data:image/jpeg;base64,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" alt="Game 1">
+            <h3>DICE</h3>
+            
+        </a>
+
+        <!-- Game 2 -->
+        <a href="lotto.html" class="game-item" onclick="increaseScore(0)">
+            <img src="https://th.bing.com/th?id=OIF.9wc1CYJkYJDBRE2Y%2bVL9hw&w=236&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Game 2">
+            <h3>LOTTE</h3>
+            
+        </a>
+
+        <!-- Game 3 -->
+        <a href="roulette.html" class="game-item" onclick="increaseScore(0)">
+            <img src="https://th.bing.com/th/id/OIP.pa6XAjVB6XYoIC0LebJ9zgHaFl?w=232&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Game 3">
+            <h3>ROULETTE</h3>
+            
+        </a>
+
+        <!-- Game 4 -->
+        <a href="javascript:void(0)" class="game-item" onclick="increaseScore(0)">
+            <img src="game4.jpg" alt="Game 4">
+            <h3>Game 4</h3>
+            <div class="score" id="score4">Score: 0</div>
+        </a>
+
+        <!-- Game 5 -->
+        <a href="javascript:void(0)" class="game-item" onclick="increaseScore(0)">
+            <img src="game5.jpg" alt="Game 5">
+            <h3>Game 5</h3>
+            <div class="score" id="score5">Score: 0</div>
+        </a>
+
+        <!-- Game 6 -->
+        <a href="javascript:void(0)" class="game-item" onclick="increaseScore(0)">
+            <img src="game6.jpg" alt="Game 6">
+            <h3>Game 6</h3>
+            <div class="score" id="score6">Score: 0</div>
+        </a>
+
+        <!-- Game 7 -->
+        <a href="javascript:void(0)" class="game-item" onclick="increaseScore(0)">
+            <img src="game7.jpg" alt="Game 7">
+            <h3>Game 7</h3>
+            <div class="score" id="score7">Score: 0</div>
+        </a>
+
+        <!-- Game 8 -->
+        <a href="javascript:void(0)" class="game-item" onclick="increaseScore(0)">
+            <img src="game8.jpg" alt="Game 8">
+            <h3>Game 8</h3>
+            <div class="score" id="score8">Score: 0</div>
+        </a>
+
+        <!-- Game 9 -->
+        <a href="javascript:void(0)" class="game-item" onclick="increaseScore(0)">
+            <img src="game9.jpg" alt="Game 9">
+            <h3>Game 9</h3>
+            <div class="score" id="score9">Score: 0</div>
+        </a>
+
+        <!-- Game 10 -->
+        <a href="javascript:void(0)" class="game-item" onclick="increaseScore(0)">
+            <img src="game10.jpg" alt="Game 10">
+            <h3>Game 10</h3>
+            <div class="score" id="score10">Score: 0</div>
+        </a>
+
+        <!-- Game 11 -->
+        <a href="javascript:void(0)" class="game-item" onclick="increaseScore(0)">
+            <img src="game11.jpg" alt="Game 11">
+            <h3>Game 11</h3>
+            <div class="score" id="score11">Score: 0</div>
+        </a>
+
+        <!-- Game 12 -->
+        <a href="javascript:void(0)" class="game-item" onclick="increaseScore(0)">
+            <img src="game12.jpg" alt="Game 12">
+            <h3>Game 12</h3>
+            <div class="score" id="score12">Score: 0</div>
+        </a>
+    </div>
+    
+    <!-- Thêm đoạn script xử lý điểm danh -->
+    <script>
+        // Lưu trữ điểm trong localStorage
+        let totalScore = localStorage.getItem('totalScore') ? parseInt(localStorage.getItem('totalScore')) : 0;
+        document.getElementById('totalScore').innerText = totalScore;
+
+        // Hàm tăng điểm
+        function increaseScore(points) {
+            totalScore += points;
+            localStorage.setItem('totalScore', totalScore);
+            document.getElementById('totalScore').innerText = totalScore;
+        }
+
+        // Xử lý logic "Điểm danh" chỉ một lần mỗi ngày
+        const checkInButton = document.getElementById('check-in-button');
+        const checkInMessage = document.getElementById('check-in-message');
+
+        // Lấy ngày hiện tại
+        const today = new Date().toLocaleDateString();
+
+        // Kiểm tra nếu đã điểm danh hôm nay chưa
+        const lastCheckIn = localStorage.getItem('lastCheckIn');
+        if (lastCheckIn === today) {
+            checkInButton.disabled = true;
+            checkInMessage.style.display = 'block';
+            checkInMessage.innerText = "Bạn đã điểm danh hôm nay!";
+        } else {
+            checkInButton.addEventListener('click', function() {
+                // Cộng thêm 10 điểm khi điểm danh
+                increaseScore(10);
+
+                // Lưu ngày điểm danh
+                localStorage.setItem('lastCheckIn', today);
+
+                // Hiển thị thông báo và vô hiệu hóa nút
+                checkInMessage.style.display = 'block';
+                checkInMessage.innerText = "Bạn đã điểm danh thành công!";
+                checkInButton.disabled = true;
+            });
+        }
+    </script>
+</body>
+</html>

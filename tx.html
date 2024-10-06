@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Tài Xỉu</title>
+    <link rel="stylesheet" href="tx.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>Game Tài Xỉu</h1>
+
+        <div class="dice-container">
+            <img class="dice" id="dice1" src="https://img.icons8.com/?size=100&id=o1dGziQOijg4&format=png&color=000000" alt="Dice 1">
+            <img class="dice" id="dice2" src="https://img.icons8.com/?size=100&id=Fwcx5mpkWd8P&format=png&color=000000" alt="Dice 2">
+            <img class="dice" id="dice3" src="https://img.icons8.com/?size=100&id=q4ul9MoiyRtB&format=png&color=000000" alt="Dice 3">
+        </div>
+
+        <div class="bet-container">
+            <button id="taiButton" class="bet-button">Tài (11-18)</button>
+            <button id="xiuButton" class="bet-button">Xỉu (3-10)</button>
+        </div>
+
+        <div class="result">
+            <p id="resultMessage"></p>
+        </div>
+
+        <div class="player-info">
+            <p>Balance: <span id="balance">10</span> GJ </p>
+        </div>
+
+        <p>Tổng điểm của bạn: <span id="totalScore">0</span> GJ</p> <!-- Hiển thị tổng điểm -->
+
+        <button id="rollDiceButton">Lắc Xúc Xắc</button>
+    </div>
+
+    <script src="tx.js"></script>
+</body>
+</html>

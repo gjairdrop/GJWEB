@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Lotte</title>
+    <link rel="stylesheet" href="lotto.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>Game Lotte</h1>
+        <div class="info">
+            <p>Balance: <span id="totalScore">0</span> GJ</p>
+            <p>Remaining Plays: <span id="remainingPlays">3</span></p>
+        </div>
+        <label for="userNumber">Chọn một số từ 1 đến 10:</label>
+        <input type="number" id="userNumber" min="1" max="10">
+        <button id="playButton" class="play-btn">Chơi Lotte</button>
+        <div class="result-box">
+            <p id="resultMessage"></p>
+            <p id="randomNumberDisplay" class="random-number"></p>
+        </div>
+    </div>
+    
+    <audio id="spinSound" src="spin.mp3"></audio>
+    <audio id="winSound" src="win.mp3"></audio>
+    <audio id="loseSound" src="lose.mp3"></audio>
+    
+    <script src="lotto.js"></script>
+</body>
+</html>
